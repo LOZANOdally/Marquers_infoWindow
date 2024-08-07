@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Info Windows</title>
+    <!--key for polylines-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7Y32T_PJHZxYcK3BJYJFNwSl6cuvLXpo&callback=initMap&libraries=&v=weekly"
+            defer
+    ></script>
+    <style>
+        #map {
+            height: 100%;
+        }
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+    <script>
+        function initMap() {
+            // GPS lycee
+            const lycee = { lat: 48.95930033308523, lng: 2.5477890651742516 };
+            const markerDos = {lat: 48.96129320162091, lng: 2.5543675343311785};
+            const markerTres = {lat: 48.958983, lng: 2.544303};
+
+
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 15,
+                center: lycee,
+            });
+            const contentString =
+                '<div id="content">' +
+                '<div id="siteNotice">' +
+                "</div>" +
+                '<h1 id="firstHeading" class="firstHeading">Lycée Jean Rostand</h1>' +
+                '<div id="bodyContent">' +
+                "<p><b>Jean Rostand</b>, est le lycée qui acceuille la meilleure section <b>BTS SNIR</b> d'ile de france! " +
+                "<br/> les statistiques y sont impréssionnantes... " +
+                "here We are coding fun :'!'.</p>" +
+                "<a href=https://lycee-jeanrostand.fr/>https://lycee-jeanrostand.fr</a> " +
+                "</div>" +
+                + "<br/>" +
+                '<img src="https://static.nationalgeographic.fr/files/styles/image_3200/public/re%CC%81sume%CC%81_siliconvalley.webp?w=1600&h=1014" width=500em heigth=500em>'+
+                "</div>";
+            const infowindow = new google.maps.InfoWindow({
+                content: contentString,
+            });
+            const marker = new google.maps.Marker({
+                position: lycee,
+                map,
+                title: "Lycée Jean Rostand",
+            });
+            marker.addListener("click", () => {
+                infowindow.open(map, marker);
+            });
+
+
+            const contentString2 =
+                '<div id="content">' +
+                '<div id="siteNotice">' +
+                "</div>" +
+                '<h1 id="firstHeading" class="firstHeading">Hotel Première Classe Villepinte</h1>' +
+                '<div id="bodyContent">' +
+                "<p><b>Jean Rostand</b>, est le lycée qui acceuille la meilleure section <b>BTS SNIR</b> d'ile de france! " +
+                "<br/> les statistiques y sont impréssionnantes... " +
+                "here We are coding fun :'!'.</p>" +
+                "<a href=https://lycee-jeanrostand.fr/>https://lycee-jeanrostand.fr</a> " +
+                "</div>" +
+                + "<br/>" +
+                '<img src="https://media.iceportal.com/44293/photos/67565030_XXL.jpg" width=500em heigth=500em>'+
+                "</div>";
+            const infowindow2 = new google.maps.InfoWindow({
+                content: contentString2,
+            });
+            const marker2 = new google.maps.Marker({
+                position: markerDos,
+                map,
+                title: "2eme marqeurs",
+            });
+            marker2.addListener("click", () => {
+                infowindow2.open(map, marker2);
+            });
+            const contentString3 =
+                '<div id="content">' +
+                '<div id="siteNotice">' +
+                "</div>" +
+                '<h1 id="firstHeading" class="firstHeading">Gymnase Cosec - E. Leprand</h1>' +
+                '<div id="bodyContent">' +
+                "<p><b>Gymnase </b>, est le meilleur endroit pour faire du sport <b>SALLE DE SPORT</b> d'ile de france! " +
+                "<br/> les statistiques y sont impréssionnantes... " +
+                "here We are coding fun :'!'.</p>" +
+                "<a href=https://lycee-jeanrostand.fr/>https://lycee-jeanrostand.fr</a> " +
+                "</div>" +
+                + "<br/>" +
+                '<img src="https://static.nationalgeographic.fr/files/styles/image_3200/public/re%CC%81sume%CC%81_siliconvalley.webp?w=1600&h=1014" width=500em heigth=500em>'+
+                "</div>";
+            const infowindow3 = new google.maps.InfoWindow({
+                content: contentString3,
+            });
+            const marker3 = new google.maps.Marker({
+                position: markerTres,
+                map,
+                title: "3eme marqeurs",
+            });
+            marker3.addListener("click", () => {
+                infowindow3.open(map, marker3);
+            });
+
+        }
+    </script>
+</head>
+<body>
+<div id="map"></div>
+</body>
+</html>
